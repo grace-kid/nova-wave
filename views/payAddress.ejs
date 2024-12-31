@@ -1,0 +1,52 @@
+<%- include('header') %>
+<header id="header-sectionww">
+    <div  class="flex justify-between w-full  p-2">
+        <img src="./uploads/logo/logo.png" class="w-64"  alt="NovaWave Ltd"> 
+        <a href="/dashboard" class="text-lg text-center mt-2">Back to Dashboard</a>
+      </div>
+  </header>
+<section class="text-center flex justify-around" >
+    <div  class="text-center items-center w-96 bg-purple-950 pt-7 space-y-3">
+        <h2 class=" font-2 text-yellow-600 font-extrabold mx-6">
+            Please follow the instruction below 
+        </h2>
+        <div class="font-bold">
+            you have requested to deposit :$<%= amount %>
+        </div>
+        <div class="text-center justify-center ">
+            <img src="<%= img %>" class=" items-center w-full   my-2" alt="">
+            <input type="text" id="address" value="<%= address %>" readonly class="w-full p-2 border-2 border-gray-600 rounded bg-gray-900 text-gray-400">
+            <button onclick="copyAddress()" class="mt-4 w-full bg-blue-800 text-white py-2 px-4 rounded hover:bg-blue-700">
+                Click to Copy  payment address
+            </button>
+        </div>
+        <form action="/confirm" method="post" class="my-4 py-3 bg-purple-900 w-full space-y-3 border-y-white border-y-2">
+            <p>Proof information </p>
+            <input type="number" name="interest" value="<%= interest %>" class="text-black placeholder:text-black bg-orange-300">
+            <input type="text" placeholder="Address" required name="address"  class="w-full p-2 border bg-purple-400 text-black border-gray-300 placeholder:text-white rounded">
+            <input type="text" required placeholder="Transaction ID/HASH ID" name="hashId" class="w-full p-2 border bg-purple-400 text-black border-gray-300 placeholder:text-white rounded">
+            <input type="number" name="amount" readonly placeholder="Amount" value="<%= amount %>" class="w-full p-2 border bg-purple-400 text-black border-gray-300 placeholder:text-white rounded">
+            <button class="bg-purple-700 p-4 m4   inline-block hover:w-28 -skew-x-12" type="submit" >Confirm Now</button>
+        </form>
+    </div>
+</section>
+
+<div id="currency-converter-731592"><script type="text/javascript" src="https://www.cashbackforex.com/Content/remote/remote-widgets.js"></script><script type="text/javascript"> RemoteCalc({"Url":"https://www.cashbackforex.com", "TopPaneStyle":"YmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KCMxYmExYzQgMjAlLCAjNDliOWFkIDQ1JSk7IGJvcmRlcjogc29saWQgMHB4OyBib3JkZXItYm90dG9tOiBub25lOyBjb2xvcjogd2hpdGU7","BottomPaneStyle":"YmFja2dyb3VuZDogd2hpdGU7IGJvcmRlcjogc29saWQgMXB4ICM3YTdhN2E7IGJvcmRlci10b3A6IG5vbmU7IGNvbG9yOiBibGFjazs=","ButtonStyle":"YmFja2dyb3VuZDogIzFiYTFjNDsgY29sb3I6IHdoaXRlOyBib3JkZXItcmFkaXVzOiAyMHB4Ow==","TitleStyle":"dGV4dC1hbGlnbjogbGVmdDsgZm9udC1zaXplOiA0MHB4OyBmb250LXdlaWdodDogNTAwOw==","TextboxStyle":"YmFja2dyb3VuZC1jb2xvcjogd2hpdGU7IGNvbG9yOiBibGFjazsgYm9yZGVyOiBzb2xpZCAxcHggI2FhYWFhYQ==","ContainerWidth":"665","HighlightColor":"#ffff00","IsDisplayTitle":false,"IsShowEmbedButton":false,"CompactType":"large","DefaultCurrencyFrom":"EUR","DefaultCurrencyTo":"USD","Calculator":"currency-converter","ContainerId":"currency-converter-731592"});</script></div>
+
+<%- include('chart') %>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

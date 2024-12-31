@@ -1,0 +1,1392 @@
+<%- include('header') %>
+<body class="px-0 text-center bg-purple-950 text-white w-full">
+<script src="./js/script.js "></script>
+<script src="public/js/script.js "></script>
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+/>
+
+<script>
+  $(document).ready(function () {
+    $("#bb").click(function () {
+      $("#google_translate_element").toggle();
+    });
+  });
+</script>
+<header id="header-sectionww">
+    <div  class="flex justify-between w-full align-middle  p-2">
+        <img src="./uploads/logo/logo.png" class="w-64"  alt="NovaWave Ltd"> 
+        <img id="bb" src="./uploads/logo/download (2).jpg" alt="translator" class="w-8 h-8 mt-2 rounded-full">
+        <button id="menu" class="mx-2 "><i class="fa fa-bars"></i></button>
+    </div>
+<nav class="navbarw n fixed-top">
+
+   
+         
+   
+        
+    
+<div
+class="text-white hidden font-bold bg-violet-800 border-y-2 border-violet-800"
+id="nav"
+>
+<ul class="navbar-nav px-5 text-left md:font-extrabold">
+  <li class="nav-item hover:bg-violet-950">
+    <a class="nav-link active" href="/">Home</a>
+  </li>
+  <li class="nav-item hover:bg-violet-950">
+    <a class="nav-link" href="#about">About Us</a>
+  </li>
+  <li class="nav-item hover:bg-violet-950">
+    <a class="nav-link" href="#plan">Service Plans</a>
+  </li>
+
+
+  <li class="nav-item hover:bg-violet-950">
+    <a class="nav-link" href="#contact">Contact</a>
+  </li>
+  <li class="nav-item hover:bg-violet-950">
+    <a class="nav-link" href="/signup">Signup</a>
+  </li>
+
+  <li class="nav-item hover:bg-violet-950">
+    <a class="nav-link" href="/login">Login</a>
+  </li>
+</ul>
+</div>
+          
+</nav>
+
+
+</div>
+</header>
+
+
+
+<div class="fixed inset-0 bg-white flex items-center justify-center z-50" id="loading-screen">
+  <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid"></div>
+</div>
+<div class="hidden mt-0 h-10  z-40 bg-slate-200" id="google_translate_element" ></div>
+
+<div  id="main-content" class="hidden w-full">
+  <section id="st" class="home-section z-index-1">
+    <div class="overlay z-20 ">
+      <div class="container ">
+        <div class="row  align-items-center">
+          <div class="snow-container z-index-5"></div>
+          <div class="col-lg-4 d-none d-lg-block" data-aos="fade-up" >
+            <div class="w-full p-2 z-index-10" data-aos="zoom-in" >
+              <img
+              
+                src="./uploads/content/63ac0f188d1e71672220440.png"
+                alt="hero image"
+                class="box-content img-fluid img-1"
+              />
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="text-box" data-aos="zoom-in">
+              <h1>Financial Freedom Begins Here</h1>
+           
+              <p >
+                <span
+                  >NovaWave Limited offers a range of services to help people and
+                  organizations reach their financial objectives.</span
+                >
+              </p>
+             
+              <a  class="btn-custom mt-4 buttonDot" href="/signup" target="_blank">
+                Signup
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container mt-7" data-aos="fade-up" data-aos-offset="200">
+    <div class="tradingview-widget-container__widget"></div>
+    <script
+      type="text/javascript"
+      src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+      async
+    >
+        {
+        "symbols": [
+          {
+            "proName": "FOREXCOM:SPXUSD",
+            "title": "S&P 500 Index"
+          },
+          {
+            "proName": "FOREXCOM:NSXUSD",
+            "title": "US 100 Cash CFD"
+          },
+          {
+            "proName": "FX_IDC:EURUSD",
+            "title": "EUR to USD"
+          },
+          {
+            "proName": "BITSTAMP:ETHUSD",
+            "title": "Ethereum"
+          },
+          {
+            "description": "Tsla",
+            "proName": "NASDAQ:TSLA"
+          },
+          {
+            "description": "Msft",
+            "proName": "NASDAQ:MSFT"
+          },
+          {
+            "description": "Meta",
+            "proName": "NASDAQ:META"
+          }
+        ],
+        "showSymbolLogo": true,
+        "isTransparent": false,
+        "displayMode": "adaptive",
+        "colorTheme": "light",
+        "locale": "en"
+      }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+  </section>
+
+  
+  <section class="about-section text-center w-full py-16">
+    <div class="container mx-auto my-6 px-4 py-8 bg-purple-950 text-white rounded-lg shadow-lg">
+      <div class="flex flex-col lg:flex-row items-center justify-between">
+        <!-- Left Side Content -->
+        <div class="lg:w-7/12 w-full mb-10 lg:mb-0" data-aos="zoom-in" data-aos-offset="200">
+          <div class="text-box">
+            <h5 class="my-4 text-lg font-medium">A Profitable platform for high-margin investment</h5>
+            <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">
+              Best Investments Plan For <span class="text-stroke text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-red-500">WorldWide</span>
+            </h1>
+            <div class="mt-8">
+              <button class="btn-custom buttonDot py-2 px-6 text-white font-semibold rounded-lg shadow-md">
+                <a class="mt-4" href="/signup" target="_blank">
+                  Get Started
+                </a>
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Right Side Content (Countings) -->
+        <div class="lg:w-5/12 w-full" >
+          <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-6 sm:space-y-0 sm:space-x-6">
+            <!-- Box 1 -->
+            <div class="box text-center bg-white text-purple-950 rounded-lg p-4 shadow-lg" data-aos="fade-up" data-aos-offset="200">
+              <h3 class="text-3xl font-bold text-purple-950">25609</h3>
+              <h5 class="text-sm text-purple-950">All Members</h5>
+            </div>
+  
+            <!-- Box 2 -->
+            <div class="box text-center bg-white text-purple-950 rounded-lg p-4 shadow-lg"  data-aos="fade-up" data-aos-offset="200">
+              <h3 class="text-3xl font-bold text-purple-950">12.5M</h3>
+              <h5 class="text-sm text-purple-950">Average Investment</h5>
+            </div>
+  
+            <!-- Box 3 -->
+            <div class="box text-center bg-white text-purple-950 rounded-lg p-4 shadow-lg"  data-aos="fade-up" data-aos-offset="200">
+              <h3 class="text-3xl font-bold text-purple-950">200</h3>
+              <h5 class="text-sm text-purple-950">Countries Supported</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<section class="about-section mx-4">
+  <div class="containerkk">
+    <div class="row gy-5 md:flex align-items-center">
+      <div class="col-lg-6">
+        <div class="img-box"  data-aos="flip-left" data-aos-offset="200">
+          <img
+            src="./uploads/content/63ac0ff74380e1672220663.png"
+            class=""
+            alt="about image"
+          />
+        </div>
+      </div>
+      <div class="col-lg-6 md:mx-3 z-10">
+        <div class="text-box "  >
+          <div class="header-text"  data-aos="flip-right" data-aos-offset="200">
+            <h5 id="about" >ABOUT US</h5>
+            <h2>Welcome to NovaWave Limited</h2>
+          </div>
+          <p>
+            <i  data-aos="fade-up" data-aos-offset="200"
+              >Welcome to NovaWave Limited, where our audacious investing
+              methods and creative approach are transforming the financial
+              world. We are innovators, game-changers, and explorers in the
+              financial industry; we are not your typical investing firm.</i
+            >
+          </p>
+          <p></p>
+          <p>
+            <span  data-aos="fade-up" data-aos-offset="200"
+              >We are&nbsp;NovaWave Limited, an uprising investment company that
+              helps individuals and institutions achieve their financial goals.
+              We offer a range of products and services, including mutual funds,
+              closed-end funds, unit investment trusts, exchange-traded funds,
+              retirement plans, advisory services, and more.</span
+            >
+          </p>
+          <p></p>
+          <p>
+            <span  data-aos="fade-up" data-aos-offset="200"
+              >We have over 5 years of experience in the investment industry,
+              and we manage over $2 billion in assets for our clients. We have a
+              team of qualified and experienced financial professionals who use
+              their expertise and insights to create customized investment
+              solutions for each client. We also leverage cutting-edge
+              technology and research to stay ahead of the market trends and
+              opportunities.</span
+            >
+          </p>
+          <p></p>
+          <p>
+            <span  data-aos="fade-up" data-aos-offset="200"
+              >Our mission is to provide our clients with the best possible
+              investment experience, by delivering superior returns, exceptional
+              service, and innovative solutions. We are committed to upholding
+              the highest standards of ethics, integrity, and transparency in
+              everything we do. We value our clients’ trust and loyalty, and we
+              strive to exceed their expectations.</span
+            >
+          </p>
+          <p></p>
+          <p></p>
+          <p>
+            <span  data-aos="fade-up" data-aos-offset="200"
+              >Whether you are an individual investor looking for a simple and
+              convenient way to invest, or an institution seeking a
+              sophisticated and tailored investment strategy, we have the right
+              solution for you. Contact us today to find out how we can help you
+              achieve your financial objectives.</span
+            >
+          </p>
+          
+          <a class="btn-custom mt-4" href="/signup"
+            >Know More</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- TradingView Widget END -->
+<section class="how-it-work py-16 bg-gray-100">
+  <div class="container mx-auto font-bold">
+    <h2 class="text-3xl text-center mb-12 "  data-aos="zoom-in" data-aos-offset="200">How it Works</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Step 1: Register & Log in -->
+      <div class="work-process bg-white p-6 rounded-lg shadow-lg">
+        <div class="flex items-center mb-6">
+          <div class="count text-4xl text-purple-600 font-bold mr-4">
+            <h2>1<span>.</span></h2>
+          </div>
+          <div class="text"  data-aos="fade-up" data-aos-offset="200">
+            <h4 class="text-xl font-semibold ">Register &amp; Log in</h4>
+            <p class=" mt-2">
+              Create an account and choose a desired program.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 2: Add Fund -->
+      <div class="work-process bg-white p-6 rounded-lg shadow-lg"  data-aos="fade-up" data-aos-offset="200">
+        <div class="flex items-center mb-6">
+          <div class="count text-4xl text-purple-600 font-bold mr-4">
+            <h2>2<span>.</span></h2>
+          </div>
+          <div class="text">
+            <h4 class="text-xl font-semibold ">Add Fund</h4>
+            <p class=" mt-2">
+              Add funds to your account to proceed with the investment plan.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 3: Select a Service -->
+      <div class="work-process bg-white p-6 rounded-lg shadow-lg"  data-aos="fade-up" data-aos-offset="200">
+        <div class="flex items-center mb-6">
+          <div class="count text-4xl text-purple-600 font-bold mr-4">
+            <h2>3<span>.</span></h2>
+          </div>
+          <div class="text">
+            <h4 class="text-xl font-semibold ">Select a Service</h4>
+            <p class=" mt-2">
+              Select the services you want and get ready to receive more publicity.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Step 4: Enjoy Super Results -->
+      <div class="work-process bg-white p-6 rounded-lg shadow-lg"  data-aos="fade-up" data-aos-offset="200">
+        <div class="flex items-center mb-6">
+          <div class="count text-4xl text-purple-600 font-bold mr-4">
+            <h2>4<span>.</span></h2>
+          </div>
+          <div class="text">
+            <h4 class="text-xl font-semibold ">Enjoy Super Results</h4>
+            <p class=" mt-2">
+              Enjoy incredible results when your order is complete.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class=" py-6 mx-2  md:py-12  bg-purple-700">
+  <div class="containerkk">
+    <div class="row">
+      <div class="col-12 text-lg">
+        <div class="header-text text-center"  data-aos="zoom-in" data-aos-offset="200">
+          <h4 id="plan" class="text-white font-bold">SERVICE OFFER</h4>
+          <h2>Service Plans</h2>
+          <p>Best way to Earn with Our Services</p>
+        </div>
+      </div>
+    </div>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-screen-xl mx-auto"
+  >
+    <!-- Basic Scheme -->
+    <div
+    data-aos="fade-up" data-aos-offset="200"
+      class="pricing-box p-6 bg-violet-950 shadow-lg rounded-lg hover:shadow-xl transition-all"
+    >
+      <h4 class="text-xl font-semibold  capitalize mb-4">
+        Basic Scheme
+      </h4>
+      <h2 class="text-3xl font-bold  mb-2">$200 - $2000</h2>
+      <h5 class="text-lg  mb-4">
+        3.14% <span class="text-sm">Every 1 Day</span>
+      </h5>
+      <ul class="space-y-3">
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Duration</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >Every Day for 65 Days</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Min Amount</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >$200</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Max Amount</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >$2000</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Per Day</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >3.14%</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span
+            ><i class="far fa-chevron-double-right"></i> Profit For Every 1
+            Day</span
+          >
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >Yes</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> 204.1%</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >Capital</span
+          >
+        </li>
+      </ul>
+      <button class="btn-custom mt-6  text-white py-2 rounded-lg">
+        <a href="/login" class="block text-center">Invest Now</a>
+      </button>
+    </div>
+
+    <!-- Silver Scheme -->
+    <div
+    data-aos="fade-up" data-aos-offset="200"
+      class="pricing-box p-6 bg-violet-950 shadow-lg rounded-lg hover:shadow-xl transition-all"
+    >
+      <h4 class="text-xl font-semibold  capitalize mb-4">
+        Silver Scheme
+      </h4>
+      <h2 class="text-3xl font-bold  mb-2">$2000 - $5000</h2>
+      <h5 class="text-lg  mb-4">
+        350% <span class="text-sm">After 30 Days</span>
+      </h5>
+      <ul class="space-y-3">
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Duration</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >After 30 Days</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Min Amount</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >$2000</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Max Amount</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >$5000</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Per Day</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >35%</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span
+            ><i class="far fa-chevron-double-right"></i> Profit For 30
+            Days</span
+          >
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >Yes</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> 0%</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >Capital</span
+          >
+        </li>
+      </ul>
+      <button class="btn-custom mt-6  text-white py-2 rounded-lg">
+        <a href="/login" class="block text-center">Invest Now</a>
+      </button>
+    </div>
+
+    <!-- Advance Scheme -->
+    <div
+    data-aos="fade-up" data-aos-offset="200"
+      class="pricing-box p-6 bg-violet-950 shadow-lg rounded-lg hover:shadow-xl transition-all"
+    >
+      <h4 class="text-xl font-semibold  capitalize mb-4">
+        Advance Scheme
+      </h4>
+      <h2 class="text-3xl font-bold  mb-2">$5000 - $10000</h2>
+      <h5 class="text-lg  mb-4">
+        12% <span class="text-sm">Every 1 Day</span>
+      </h5>
+      <ul class="space-y-3">
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Duration</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >Every Day for 12 Days</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Min Amount</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >$5000</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Max Amount</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >$10000</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Per Day</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >12%</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span
+            ><i class="far fa-chevron-double-right"></i> Profit For Every 1
+            Day</span
+          >
+          <span
+            class="badge bg-purple-400   px-3 py-1 rounded-full text-sm"
+            >Yes</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> 144%</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >Capital</span
+          >
+        </li>
+      </ul>
+      <button class="btn-custom mt-6  text-white py-2 rounded-lg">
+        <a href="/login" class="block text-center">Invest Now</a>
+      </button>
+    </div>
+
+    <!-- Golden Scheme -->
+    <div
+    data-aos="fade-up" data-aos-offset="200"
+      class="pricing-box p-6 bg-violet-950 border-red-600 border-2 shadow-lg rounded-lg hover:shadow-xl transition-all"
+    >
+      <div
+        class="hpop bg-yellow-500 border-red-600 border-2 text-white text-center py-2 mb-4 rounded-full text-lg font-bold"
+      >
+        Golden Scheme
+      </div>
+      <h4 class="text-xl font-semibold  capitalize mb-4">
+        New Year Millionaire
+      </h4>
+      <h2 class="text-3xl font-bold  mb-2">$10000 - $50000</h2>
+      <h5 class="text-lg  mb-4">
+        50% <span class="text-sm">After 15 Days</span>
+      </h5>
+      <ul class="space-y-3">
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Duration</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >After 15 Days</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Min Amount</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >$10000</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Max Amount</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >$50000</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> Per Day</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >5%</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span
+            ><i class="far fa-chevron-double-right"></i> Profit For 15
+            Days</span
+          >
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >Yes</span
+          >
+        </li>
+        <li class="flex justify-between ">
+          <span><i class="far fa-chevron-double-right"></i> 0%</span>
+          <span
+            class="badge bg-purple-400  px-3 py-1 rounded-full text-sm"
+            >Capital</span
+          >
+        </li>
+      </ul>
+      <button class="btn-custom mt-6  text-white py-2 rounded-lg">
+        <a href="/login" class="block text-center">Invest Now</a>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<section class="pricing-sectionWW">
+  <div class="containerWW">
+    <div class="row">
+      <div  data-aos="zoom-in" data-aos-offset="200">
+        <div class="header-text text-center">
+          <h5>NovaWave Market Listing</h5>
+          <h2>Real Time Market Price</h2>
+          <p>Grow With Us</p>
+        </div>
+      </div>
+    </div>
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container"  data-aos="flip-up" data-aos-offset="200">
+      <div class="tradingview-widget-container__widget mx-4"></div>
+      <script
+        type="text/javascript"
+        src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js"
+        async
+      >
+          {
+          "symbols": [
+            [
+              "Apple",
+              "AAPL|1D"
+            ],
+            [
+              "Google",
+              "GOOGL|1D"
+            ],
+            [
+              "Microsoft",
+              "MSFT|1D"
+            ],
+            [
+              "NASDAQ:TSLA|1D"
+            ],
+            [
+              "NASDAQ:AMZN|1D"
+            ],
+            [
+              "NASDAQ:META|1D"
+            ],
+            [
+              "NASDAQ:GOOGL|1D"
+            ],
+            [
+              "NASDAQ:NFLX|1D"
+            ],
+            [
+              "NYSE:BABA|1D"
+            ],
+            [
+              "NYSE:NKE|1D"
+            ],
+            [
+              "NYSE:XOM|1D"
+            ],
+            [
+              "NSE:BHARTIARTL|1D"
+            ]
+          ],
+          "chartOnly": false,
+          "width": "100%",
+          "height": "100%",
+          "locale": "en",
+          "colorTheme": "light",
+          "autosize": true,
+          "showVolume": false,
+          "showMA": false,
+          "hideDateRanges": false,
+          "hideMarketStatus": false,
+          "hideSymbolLogo": false,
+          "scalePosition": "right",
+          "scaleMode": "Normal",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+          "fontSize": "10",
+          "noTimeScale": false,
+          "valuesTracking": "1",
+          "changeMode": "price-and-percent",
+          "chartType": "area",
+          "maLineColor": "#2962FF",
+          "maLineWidth": 1,
+          "maLength": 9,
+          "headerFontSize": "medium",
+          "lineWidth": 2,
+          "lineType": 0,
+          "dateRanges": [
+            "1d|1",
+            "1m|30",
+            "3m|60",
+            "12m|1D",
+            "60m|1W",
+            "all|1M"
+          ]
+        }
+      </script>
+    </div>
+    <!-- TradingView Widget END -->
+    <!-- TradingView Widget BEGIN -->
+
+
+    <div class="flex justify-center items-center min-h-screen"  data-aos="fade-up" data-aos-offset="200">
+      <div class="tradingview-widget-container flex justify-center items-center">
+        <div class="tradingview-widget-container__widget"></div>
+        <script
+          type="text/javascript"
+          src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+          async
+        >
+          {
+            "width": 550,
+            "height": 550,
+            "symbolsGroups": [
+              {
+                "name": "Indices",
+                "originalName": "Indices",
+                "symbols": [
+                  { "name": "FOREXCOM:SPXUSD", "displayName": "S&P 500 Index" },
+                  { "name": "FOREXCOM:NSXUSD", "displayName": "US 100 Cash CFD" },
+                  { "name": "FOREXCOM:DJI", "displayName": "Dow Jones Industrial Average Index" },
+                  { "name": "INDEX:NKY", "displayName": "Japan 225" },
+                  { "name": "INDEX:DEU40", "displayName": "DAX Index" },
+                  { "name": "FOREXCOM:UKXGBP", "displayName": "FTSE 100 Index" }
+                ]
+              },
+              {
+                "name": "Futures",
+                "originalName": "Futures",
+                "symbols": [
+                  { "name": "CME_MINI:ES1!", "displayName": "S&P 500" },
+                  { "name": "CME:6E1!", "displayName": "Euro" },
+                  { "name": "COMEX:GC1!", "displayName": "Gold" },
+                  { "name": "NYMEX:CL1!", "displayName": "WTI Crude Oil" },
+                  { "name": "NYMEX:NG1!", "displayName": "Gas" },
+                  { "name": "CBOT:ZC1!", "displayName": "Corn" }
+                ]
+              },
+              {
+                "name": "Bonds",
+                "originalName": "Bonds",
+                "symbols": [
+                  { "name": "CBOT:ZB1!", "displayName": "T-Bond" },
+                  { "name": "CBOT:UB1!", "displayName": "Ultra T-Bond" },
+                  { "name": "EUREX:FGBL1!", "displayName": "Euro Bund" },
+                  { "name": "EUREX:FBTP1!", "displayName": "Euro BTP" },
+                  { "name": "EUREX:FGBM1!", "displayName": "Euro BOBL" }
+                ]
+              },
+              {
+                "name": "Forex",
+                "originalName": "Forex",
+                "symbols": [
+                  { "name": "FX:EURUSD", "displayName": "EUR to USD" },
+                  { "name": "FX:GBPUSD", "displayName": "GBP to USD" },
+                  { "name": "FX:USDJPY", "displayName": "USD to JPY" },
+                  { "name": "FX:USDCHF", "displayName": "USD to CHF" },
+                  { "name": "FX:AUDUSD", "displayName": "AUD to USD" },
+                  { "name": "FX:USDCAD", "displayName": "USD to CAD" }
+                ]
+              }
+            ],
+            "showSymbolLogo": true,
+            "isTransparent": false,
+            "colorTheme": "light",
+            "locale": "en",
+            "backgroundColor": "#ffffff"
+          }
+        </script>
+      </div>
+    </div>
+    
+    <!-- TradingView Widget END -->
+
+  
+
+  </div>
+</section>
+
+
+<section class="why-choose-us w-full text-center bg-violet-950 py-12 md:py-16">
+  <div class="container mx-auto text-center px-4">
+    <!-- Header Section -->
+    <div class="header-text mb-12"  data-aos="zoom-in" data-aos-offset="200">
+      <h5 class="text-xl text-gray-200 font-semibold">Our Features</h5>
+      <h2 class="text-4xl md:text-5xl text-white font-extrabold mt-2 mb-4">Why Choose Us</h2>
+      <p class="text-lg text-gray-300 mb-4">Learn the Best way for Choose US</p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Feature 1: Expert Management -->
+      <div class="box bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center"  data-aos="flip-right" data-aos-offset="200">
+        <div class="icon-box mb-6">
+          <img class="h-16 w-16 object-contain" src="./uploads/content/63ac1031952101672220721.png" alt="Expert Management">
+        </div>
+        <div class="text-box">
+          <h4 class="text-xl font-semibold text-violet-200 mb-2">Expert Management</h4>
+          <p class="text-gray-200 text-base">
+            Our Financial Experts are available to invest your capital in profitable assets and reduce the risk.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 2: Registered Company -->
+      <div class="box bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center"  data-aos="flip-left" data-aos-offset="200">
+        <div class="icon-box mb-6">
+          <img class="h-16 w-16 object-contain" src="./uploads/content/63ac103b79dad1672220731.png" alt="Registered Company">
+        </div>
+        <div class="text-box">
+          <h4 class="text-xl font-semibold text-violet-200 mb-2">Registered Company</h4>
+          <p class="text-gray-200 text-base">
+            NovaWave Limited is a licensed & registered company. 
+            <a href="https://find-and-update.company-information.service.gov.uk/company/11582157" class="text-violet-600 underline">License Link</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 3: Secure Investment -->
+      <div class="box bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center"  data-aos="flip-right" data-aos-offset="200">
+        <div class="icon-box mb-6">
+          <img class="h-16 w-16 object-contain" src="./uploads/content/63ac1043c78011672220739.png" alt="Secure Investment">
+        </div>
+        <div class="text-box">
+          <h4 class="text-xl font-semibold text-violet-200 mb-2">Secure Investment</h4>
+          <p class="text-gray-200 text-base">
+            With our unwavering protection, you may invest with confidence and audacity.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 4: 24/7 Support -->
+      <div class="box bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center"  data-aos="flip-left" data-aos-offset="200">
+        <div class="icon-box mb-6">
+          <img class="h-16 w-16 object-contain" src="./uploads/content/63ac1060947cf1672220768.png" alt="24/7 Support">
+        </div>
+        <div class="text-box">
+          <h4 class="text-xl font-semibold text-violet-200 mb-2">24/7 Support</h4>
+          <p class="text-gray-200 text-base">
+            Do you require help? You can email or use live chat to contact our support team at any time.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="investor-section bg-violet-950 w-full py-12 md:py-16">
+  <div class="container mx-auto text-center px-4">
+    <!-- Header Section -->
+    <div class="header-text mb-12"  data-aos="zoom-in" data-aos-offset="200">
+      <h5 class="text-xl text-gray-200 font-semibold">INVESTOR</h5>
+      <h2 class="text-3xl md:text-4xl text-white font-extrabold mt-2 mb-4">World Wide Top Investor</h2>
+      <p class="text-lg text-gray-300">Help agencies to define their new business objectives and then create professional software.</p>
+    </div>
+
+    <!-- Investors Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+      
+      <!-- Investor 1 -->
+      <div class="investor-box bg-white rounded-lg shadow-lg p-6 flex flex-col items-center"  data-aos="fade-up" data-aos-offset="200">
+        <div class="text-box text-center">
+          <h5 class="text-xl font-semibold text-violet-200">Beloda</h5>
+          <span class="text-sm text-gray-600">Investor</span>
+          <h4 class="text-lg font-semibold text-violet-200 mt-2">Invest: $6918</h4>
+        </div>
+      </div>
+
+      <!-- Investor 2 -->
+      <div class="investor-box bg-white rounded-lg shadow-lg p-6 flex flex-col items-center"  data-aos="fade-up" data-aos-offset="200">
+        <div class="text-box text-center">
+          <h5 class="text-xl font-semibold text-violet-200">Rangala</h5>
+          <span class="text-sm text-gray-600">Investor</span>
+          <h4 class="text-lg font-semibold text-violet-200 mt-2">Invest: $3000</h4>
+        </div>
+      </div>
+
+      <!-- Investor 3 -->
+      <div class="investor-box bg-white rounded-lg shadow-lg p-6 flex flex-col items-center"  data-aos="fade-up" data-aos-offset="200">
+        <div class="text-box text-center">
+          <h5 class="text-xl font-semibold text-violet-200">Teba75</h5>
+          <span class="text-sm text-gray-600">Investor</span>
+          <h4 class="text-lg font-semibold text-violet-200 mt-2">Invest: $1680</h4>
+        </div>
+      </div>
+
+      <!-- Investor 4 -->
+      <div class="investor-box bg-white rounded-lg shadow-lg p-6 flex flex-col items-center"  data-aos="fade-up" data-aos-offset="200">
+        <div class="text-box text-center">
+          <h5 class="text-xl font-semibold text-violet-200">Sagordpi</h5>
+          <span class="text-sm text-gray-600">Investor</span>
+          <h4 class="text-lg font-semibold text-violet-200 mt-2">Invest: $1610</h4>
+        </div>
+      </div>
+
+      <!-- Investor 5 -->
+      <div class="investor-box bg-white rounded-lg shadow-lg p-6 flex flex-col items-center"  data-aos="fade-up" data-aos-offset="200">
+        <div class="text-box text-center">
+          <h5 class="text-xl font-semibold text-violet-200">KBegum</h5>
+          <span class="text-sm text-gray-600">Investor</span>
+          <h4 class="text-lg font-semibold text-violet-200 mt-2">Invest: $1500</h4>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="deposit-withdraw-section bg-violet-950 my-3 fleex justify-center">
+  <div class="container justify-items-center"  data-aos="zoom-in" data-aos-offset="200">
+    <div class="row">
+      <div class="col-12">
+        <div class="header-text text-center">
+          <h2>Last Deposits &amp; Withdrawals</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="deposit-switcher">
+          <button tab-id="tab1" class="tab active">Deposit</button>
+          <button tab-id="tab2" class="tab">Withdraw</button>
+        </div>
+        <div id="tab1" class="content active">
+          <div class="table-parent table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Gateway</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>DNMWIYA</td>
+                  <td>$ 200</td>
+                  <td>
+                    <span class="currency">
+                      <img src="./uploads/gateway/tron.jpg" alt="" />
+                      USDT - Tron TRC20
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>DNMWIYA</td>
+                  <td>$ 200</td>
+                  <td>
+                    <span class="currency">
+                      <img src="./uploads/gateway/tron.jpg" alt="" />
+                      USDT - Tron TRC20
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>DNMWIYA</td>
+                  <td>$ 200</td>
+                  <td>
+                    <span class="currency">
+                      <img src="./uploads/gateway/perfect.jpg" alt="" />
+                      Perfect Money
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>RICHADDO</td>
+                  <td>$ 20</td>
+                  <td>
+                    <span class="currency">
+                      <img src="./uploads/gateway/tron.jpg" alt="" />
+                      USDT - Tron TRC20
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Pablomigel254</td>
+                  <td>$ 26</td>
+                  <td>
+                    <span class="currency">
+                      <img src="./uploads/gateway/tron.jpg" alt="" />
+                      USDT - Tron TRC20
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<iframe 
+data-aos="fade-up" data-aos-offset="200"
+src="https://ng.widgets.investing.com/top-cryptocurrencies?theme=lightTheme&hideTitle=true"
+width="100%"
+class="h-auto my-3 text-center"
+frameborder="0"
+allowtransparency="true"
+marginwidth="0"
+marginheight="0"
+></iframe>
+
+<div class="scroll-up z-7" >
+  <a href="#st" class="i font-bold bg-purple-600 top-3/4 text-white z-index-7"
+    >⏏</a
+  >
+</div>
+<div class="scroll-up z-index-77">
+  <button
+    id="chat1"
+    class="btn bg-blue-600 top-3/4 fixed right-3 text-black mt-2 px-3 z-20 rounded-full"
+  >
+    Live Chat
+    <span id="adminStatus" class=" rounded-full bg-red-500">◯</span> <!-- Status Indicator -->
+  </button>
+</div>
+<div class="absolute z-40 bottom-8">
+  <div id="chat2" class="fixed bottom-6 text-center z-9999">
+    <div
+      id="messages"
+      class="max-w-4xl mx-auto max-h-72 overflow-scroll bg-purple-300 p-4 rounded-lg shadow-lg space-y-1 overflow-y-auto"
+    >
+      <p class="bg-purple-600 px-4 rounded-3xl">customer support</p>
+      <!-- User and Admin messages will be displayed here -->
+    </div>
+
+    <!-- Message Input and Send Button -->
+    <div class="max-w-4xl mx-auto mt-1 flex items-center space-x-4">
+      <input
+        type="text"
+        id="messageInput"
+        class="flex-1 text-black placeholder:text-black p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Type a message..."
+      />
+      <button
+        id="sendMessage"
+        class="bg-blue-500 text-white p-2 rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        Send
+      </button>
+    </div>
+  </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  const socket = io();
+
+  let userId = localStorage.getItem("userId");
+
+  // If not, generate a new user ID and store it
+  if (!userId) {
+    userId = Math.floor(Math.random() * 1000000); // Generate a random user ID (6 digits)
+    localStorage.setItem("userId", userId); // Save to localStorage
+  }
+
+  console.log(userId);
+
+  socket.on("connect", () => {
+    console.log("Connected to Socket.IO");
+    socket.emit("registerUser", { userId });
+  });
+
+  // Listen for messages from the server (admin's replies)
+  socket.on("adminReply", (message) => {
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("justify-start", "flex", "block");
+    messageDiv.innerHTML = ` 
+        <p class="text-blue-800 font-medium inline-block max-w-[50%] sm:max-w-[80%] md:max-w-[50%] lg:max-w-[40%] bg-blue-100 p-1 rounded-tl-[0px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] break-words"> ${message.message}</p>
+      `;
+    document.getElementById("messages").appendChild(messageDiv);
+
+    // Scroll to the bottom of the messages container to show new messages
+    const messagesContainer = document.getElementById("messages");
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  });
+
+  // Handle the "Send" button click
+  document.getElementById("sendMessage").addEventListener("click", () => {
+    const message = document.getElementById("messageInput").value.trim();
+
+    if (message) {
+      socket.emit("userMessage", { userId, message });
+
+      // Save the user's message to localStorage
+      saveMessage(userId, "You", message);
+
+      // Display the user's own message in the chat box
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add("justify-end", "flex", "block");
+      messageDiv.innerHTML = `
+          <p class="text-gray-800 font-medium inline-block max-w-[50%] sm:max-w-[80%] md:max-w-[50%] lg:max-w-[40%] bg-gray-100 p-1 rounded-tl-[10px] rounded-tr-[0px] rounded-br-[10px] rounded-bl-[10px] break-words"> ${message}</p>
+        `;
+      document.getElementById("messages").appendChild(messageDiv);
+
+      // Scroll to the bottom of the messages container to show new messages
+      const messagesContainer = document.getElementById("messages");
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+      // Clear the input field
+      document.getElementById("messageInput").value = "";
+    }
+  });
+
+  // Save message to localStorage
+  function saveMessage(userId, sender, message) {
+    let messages = JSON.parse(localStorage.getItem("messages_" + userId)) || [];
+    messages.push({ sender, message });
+    localStorage.setItem("messages_" + userId, JSON.stringify(messages));
+  }
+
+  // Load messages from localStorage when the page loads
+  function loadMessages(userId) {
+    const messages =
+      JSON.parse(localStorage.getItem("messages_" + userId)) || [];
+    const messagesContainer = document.getElementById("messages");
+
+    // Display the messages from localStorage
+    messages.forEach((msg) => {
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add(
+        msg.sender === "You" ? "justify-end" : "justify-start",
+        "flex",
+        "block"
+      );
+      messageDiv.innerHTML = ` 
+          <p class="${
+            msg.sender === "You"
+              ? "text-gray-800 rounded-tl-[10px] rounded-tr-[0px] rounded-br-[10px] rounded-bl-[10px] "
+              : "text-blue-800  rounded-tl-[0px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px]"
+          } font-medium inline-block max-w-[50%] 
+          sm:max-w-[80%] md:max-w-[50%] lg:max-w-[40%]
+           bg-${msg.sender === "You" ? "gray" : "blue"}-100 p-1 
+            break-words"> ${msg.message}</p>
+        `;
+      messagesContainer.appendChild(messageDiv);
+    });
+
+    // Scroll to the bottom of the messages container to show new messages
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  // Listen for admin status updates
+  socket.on("adminStatus", (data) => {
+    const adminStatusElement = document.getElementById("adminStatus");
+    
+    if (data.online) {
+      adminStatusElement.classList.remove("bg-red-500");
+      adminStatusElement.classList.add("bg-green-500");
+    } else {
+      adminStatusElement.classList.remove("bg-green-500");
+      adminStatusElement.classList.add("bg-red-500");
+    }
+  });
+
+  // Load stored messages when the page loads
+  window.onload = () => {
+    loadMessages(userId);
+    const messagesContainer = document.getElementById("messages");
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  };
+</script>
+
+
+<script>
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const snowContainer = document.querySelector(".snow-container");
+
+    const particlesPerThousandPixels = 0.1;
+    const fallSpeed = 1.25;
+    const pauseWhenNotActive = true;
+    const maxSnowflakes = 200;
+    const snowflakes = [];
+
+    let snowflakeInterval;
+    let isTabActive = true;
+
+    function resetSnowflake(snowflake) {
+      const size = Math.random() * 5 + 1;
+      const viewportWidth = window.innerWidth - size; // Adjust for snowflake size
+      const viewportHeight = window.innerHeight;
+
+      snowflake.style.width = `${size}px`;
+      snowflake.style.height = `${size}px`;
+      snowflake.style.left = `${Math.random() * viewportWidth}px`; // Constrain within viewport width
+      snowflake.style.top = `-${size}px`;
+
+      const animationDuration = (Math.random() * 3 + 2) / fallSpeed;
+      snowflake.style.animationDuration = `${animationDuration}s`;
+      snowflake.style.animationTimingFunction = "linear";
+      snowflake.style.animationName =
+        Math.random() < 0.5 ? "fall" : "diagonal-fall";
+
+      setTimeout(() => {
+        if (parseInt(snowflake.style.top, 10) < viewportHeight) {
+          resetSnowflake(snowflake);
+        } else {
+          snowflake.remove(); // Remove when it goes off the bottom edge
+        }
+      }, animationDuration * 1000);
+    }
+
+    function createSnowflake() {
+      if (snowflakes.length < maxSnowflakes) {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        snowflakes.push(snowflake);
+        snowContainer.appendChild(snowflake);
+        resetSnowflake(snowflake);
+      }
+    }
+
+    function generateSnowflakes() {
+      const numberOfParticles =
+        Math.ceil((window.innerWidth * window.innerHeight) / 1000) *
+        particlesPerThousandPixels;
+      const interval = 5000 / numberOfParticles;
+
+      clearInterval(snowflakeInterval);
+      snowflakeInterval = setInterval(() => {
+        if (isTabActive && snowflakes.length < maxSnowflakes) {
+          requestAnimationFrame(createSnowflake);
+        }
+      }, interval);
+    }
+
+    function handleVisibilityChange() {
+      if (!pauseWhenNotActive) return;
+
+      isTabActive = !document.hidden;
+      if (isTabActive) {
+        generateSnowflakes();
+      } else {
+        clearInterval(snowflakeInterval);
+      }
+    }
+
+    generateSnowflakes();
+
+    window.addEventListener("resize", () => {
+      clearInterval(snowflakeInterval);
+      setTimeout(generateSnowflakes, 1000);
+    });
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+  });
+</script>
+
+<div class="md:hidden" id="exchange-fees-calculator-984061">
+  <script
+    type="text/javascript"
+    src="https://www.cashbackforex.com/Content/remote/remote-widgets.js"
+  ></script>
+  <script type="text/javascript">
+    RemoteCalc({
+      Url: "https://www.cashbackforex.com",
+      TopPaneStyle:
+        "YmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KCMxYmExYzQgMjAlLCAjNDliOWFkIDQ1JSk7IGJvcmRlcjogc29saWQgMHB4OyBib3JkZXItYm90dG9tOiBub25lOyBjb2xvcjogd2hpdGU7",
+      BottomPaneStyle:
+        "YmFja2dyb3VuZDogd2hpdGU7IGJvcmRlcjogc29saWQgMXB4ICM3YTdhN2E7IGJvcmRlci10b3A6IG5vbmU7IGNvbG9yOiBibGFjazs=",
+      ButtonStyle:
+        "YmFja2dyb3VuZDogIzFiYTFjNDsgY29sb3I6IHdoaXRlOyBib3JkZXItcmFkaXVzOiAyMHB4Ow==",
+      TitleStyle:
+        "dGV4dC1hbGlnbjogbGVmdDsgZm9udC1zaXplOiA0MHB4OyBmb250LXdlaWdodDogNTAwOw==",
+      TextboxStyle:
+        "YmFja2dyb3VuZC1jb2xvcjogd2hpdGU7IGNvbG9yOiBibGFjazsgYm9yZGVyOiBzb2xpZCAxcHggI2FhYWFhYQ==",
+      ContainerWidth: "665",
+      HighlightColor: "#ffff00",
+      IsDisplayTitle: false,
+      IsShowEmbedButton: false,
+      CompactType: "large",
+      DefaultExchange: "binance",
+      IsShowBuyCryptoButton: "true",
+      Calculator: "exchange-fees-calculator",
+      ContainerId: "exchange-fees-calculator-984061",
+    });
+  </script>
+</div>
+<div class="hidden md:visible" id="exchange-fees-calculator-803376">
+  <script
+    type="text/javascript"
+    src="https://www.cashbackforex.com/Content/remote/remote-widgets.js"
+  ></script>
+  <script type="text/javascript">
+
+
+    RemoteCalc({
+      Url: "https://www.cashbackforex.com",
+      TopPaneStyle:
+        "YmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KCMxYmExYzQgMjAlLCAjNDliOWFkIDQ1JSk7IGJvcmRlcjogc29saWQgMHB4OyBib3JkZXItYm90dG9tOiBub25lOyBjb2xvcjogd2hpdGU7",
+      BottomPaneStyle:
+        "YmFja2dyb3VuZDogd2hpdGU7IGJvcmRlcjogc29saWQgMXB4ICM3YTdhN2E7IGJvcmRlci10b3A6IG5vbmU7IGNvbG9yOiBibGFjazs=",
+      ButtonStyle:
+        "YmFja2dyb3VuZDogIzFiYTFjNDsgY29sb3I6IHdoaXRlOyBib3JkZXItcmFkaXVzOiAyMHB4Ow==",
+      TitleStyle:
+        "dGV4dC1hbGlnbjogbGVmdDsgZm9udC1zaXplOiA0MHB4OyBmb250LXdlaWdodDogNTAwOw==",
+      TextboxStyle:
+        "YmFja2dyb3VuZC1jb2xvcjogd2hpdGU7IGNvbG9yOiBibGFjazsgYm9yZGVyOiBzb2xpZCAxcHggI2FhYWFhYQ==",
+      ContainerWidth: "665",
+      HighlightColor: "#ffff00",
+      IsDisplayTitle: false,
+      IsShowEmbedButton: false,
+      CompactType: "large",
+      DefaultExchange: "bitstamp",
+      IsShowBuyCryptoButton: "true",
+      Calculator: "exchange-fees-calculator",
+      ContainerId: "exchange-fees-calculator-803376",
+    });
+  </script>
+</div>
+<section class="rating-display-section text-center mt-8">
+  <h2 class="text-2xl font-semibold text-gray-100 mb-4">Customer Reviews</h2>
+  
+  <div class="stars text-center justify-center items-center">
+    <!-- Dynamically filled stars based on rating -->
+    <h2>
+      User Rating ⭐⭐⭐⭐⭐ <br> 4.8 average based on 5.6M reviews
+    </h2>
+    <h1>⭐⭐⭐⭐⭐</h1>
+    <div class="w-full  bg-slate-300">
+      <div class="bg-lime-600 w-11/12">90%</div>
+    </div>
+    <h1>⭐⭐⭐⭐</h1>
+  
+    <div class="w-full  bg-slate-300">
+      <div class="bg-emerald-400 w-6/12">80%</div>
+    </div>
+    <h1>⭐⭐⭐</h1>
+  
+    <div class="w-full  bg-slate-300">
+      <div class="bg-yellow-500 w-2/12">65%</div>
+    </div>
+    <h1>⭐⭐</h1>
+  
+    <div class="w-full  bg-slate-300">
+      <div class="bg-red-500 pl-2 w-1/12">60%</div>
+    </div>
+  </div>
+
+  <p class="mt-4 text-lg text-gray-200">Based on 4.5 out of 5 stars from our customers</p>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    AOS.init({
+      duration: 1000, // Animation duration (in milliseconds)
+      once: false, // Whether animation should happen only once
+    });
+  });
+</script>
+<%- include('footer') %>
+</body>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="We are NovaWave Limited, an uprising investment company that helps individuals and institutions achieve their financial goals. We offer a range of products and services, including mutual funds, closed-end funds, unit investment trusts, exchange-traded funds, retirement plans, advisory services, and more."
+  />
+  <meta name="keywords" content="NovaWave Limited" />
+  <link
+    rel="shortcut icon"
+    href="./uploads/logo/favicon.png"
+    type="image/x-icon"
+  />
+
+  <link rel="apple-touch-icon" href="./uploads/logo/logo.png" />
+  <title>NovaWave Ltd</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+  />
+
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.js"
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script src="/socket.io/socket.io.js" ></script>
+
+  <link href="./styles.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  <script
+    src="https://kit.fontawesome.com/e64598de0c.js"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+  ></script>
+
+  <script src="./js/script.js "></script>
+  <script src="public/js/script.js "></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<script>
+  $(document).ready(function () {
+    $("#menu").click(function () {
+      $("#nav").toggle();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function () {
+    $("#chat1").click(function () {
+      $("#chat2").toggle();
+    });
+  });
+</script>
+
+<style>
+  .home-section {
+    height: 100vh;
+    background: url(./uploads/content/62e7df341d6fe1659363124.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+  }
+</style>
+<style>
+  .how-it-work {
+    background-image: url(./uploads/content/6059d2c2654921616499394.jpg);
+  }
+</style>
+
+<style>
+  .snow-containerk {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    pointer-events: none;
+  }
+
+  .snowflake {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  @keyframes fall {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+      transform: translateY(100vh);
+    }
+  }
+
+  @keyframes diagonal-fall {
+    0% {
+      opacity: 0;
+      transform: translate(0, 0);
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.25;
+      transform: translate(10vw, 100vh);
+    }
+  }
+</style>

@@ -1,0 +1,185 @@
+<%- include('header') %>
+<!-- Header Section -->
+
+<header id="header-sectionww">
+  <div class="flex justify-between w-full p-2">
+    <img src="./uploads/logo/logo.png" class="w-64" alt="NovaWave Ltd" />
+    <a href="/dashboard" class="text-lg text-center mt-2">Back to Dashboard</a>
+  </div>
+</header>
+<div class="text-center flex justify-around">
+  <div
+    class="bg-purple-800 p-6 rounded-lg shadow-lg text-center items-center mt-6 w-full max-w-md"
+  >
+    <h2 class="text-2xl font-semibold bg-purple-500 text-center mb-4">
+      Deposit
+    </h2>
+    <p class="text-white text-center mb-6">
+      Fill the form to start your deposit process.
+    </p>
+
+    <form action="/deposit" method="POST" data-ng-app data-ng-init="">
+      <div class="mb-4">
+        <label class="block text-white">ChoosePlan</label>
+        <select
+          id="plan"
+          name="plan"
+          class="w-full p-2 bg-purple-400 text-black border border-gray-300 rounded"
+          name="plan"
+        >
+          <option value="">Choose plan</option>
+          <option value="1">Basic Scheme</option>
+          <option value="2">Silver Scheme</option>
+          <option value="3">Advance Scheme</option>
+          <option value="4">Golden Scheme</option>
+          <!-- Add other plans if needed -->
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-white">Percent Interest</label>
+        <input
+          id="interest"
+          name="interest"
+          type="number"
+          class="w-full p-2 bg-purple-400 text-black border border-gray-300 rounded"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-white">Minimum Amount</label>
+        <input
+          type="text"
+          id="min"
+          class="w-full p-2 border bg-purple-400 text-black border-gray-300 rounded"
+          readonly
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-white">Maximum Amount</label>
+        <input
+          id="max"
+          type="text"
+          class="w-full p-2 border bg-purple-400 text-black border-gray-300 rounded"
+          readonly
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-white">Duration</label>
+        <input
+          id="duration"
+          type="text"
+          class="w-full p-2 bg-purple-400 text-black border border-gray-300 rounded"
+          readonly
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block font-extrabold text-white">Enter Amount</label>
+        <input
+          id="amount"
+          name="amount"
+          type="number"
+          class="w-full p-2 border bg-purple-400 placeholder-gray-700 text-black border-gray-300 rounded"
+          name="amount"
+          placeholder="Enter amount to deposit"
+          required
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-white">Profit</label>
+        <input
+          id="profit"
+          type="number"
+          class="w-full p-2 border bg-purple-400 text-black border-gray-300 rounded"
+          readonly
+        />
+      </div>
+      <div class="mb-4">
+        <label class="block text-white">Total</label>
+        <input
+          id="total"
+          type="number"
+          class="w-full p-2 border bg-purple-400 text-black border-gray-300 rounded"
+          readonly
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-white"> choose payment Method</label>
+        <select
+          name="method"
+          class="w-full p-2 border bg-purple-400 text-black border-gray-300 rounded"
+          name="method"
+        >
+          <option>Choose method...</option>
+          <option value="btc">BTC</option>
+          <option value="usdt">USDT</option>
+          <option value="tron">TRON</option>
+          <!-- Add payment methods if needed -->
+        </select>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full bg-violet-600 hover:-skew-x-6 text-white p-2 rounded mt-4 mb-6 hover:bg-violet-700 transition"
+      >
+        Deposit
+      </button>
+    </form>
+  </div>
+  <script>
+    const plan = document.getElementById("plan");
+    const interest = document.getElementById("interest");
+    const min = document.getElementById("min");
+    const max = document.getElementById("max");
+    const duration = document.getElementById("duration");
+    const total = document.getElementById("total");
+    const amount = document.getElementById("amount");
+    const profit = document.getElementById("profit");
+    function updatePlan(selectedValue) {
+      if (selectedValue == 1) {
+        interest.value = 5;
+        min.value = "$20";
+        max.value = "$200";
+        duration.value = "Every Day for 65 Days";
+      } else if (selectedValue == 2) {
+        interest.value = 35;
+        min.value = "$200";
+        max.value = "$400";
+        duration.value = "Profit For  Every 30 Day";
+      } else if (selectedValue == 3) {
+        interest.value = 12;
+        min.value = "$500";
+        max.value = "$1000";
+        duration.value = "Every Day for 12 Days";
+      } else if (selectedValue == 4) {
+        interest.value = 50;
+        min.value = "$1000";
+        max.value = "infinity";
+        duration.value = "After 15 Days ";
+      } else {
+        console.log("good");
+      }
+    }
+    plan.addEventListener("change", (event) => {
+      const selectedValue = event.target.value;
+      console.log(selectedValue);
+      updatePlan(selectedValue);
+    });
+    amount.addEventListener("input", (event) => {
+      console.log(interest.value);
+      console.log(amount.value);
+      const Profitable = interest.value * amount.value;
+      const profitAfter = Profitable - amount.value;
+      console.log(Profitable);
+      console.log(profitAfter);
+      total.value = Profitable;
+      profit.value = profitAfter;
+    });
+  </script>
+</div>
+<%- include('chart') %> <%- include('footer') %>

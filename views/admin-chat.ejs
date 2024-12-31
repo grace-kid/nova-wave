@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Chat</title>
+    <!-- Include Socket.IO client -->
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+  </head>
+  <body>
+    <div class="scroll-up z-index-77">
+      <button
+        id="chat1"
+        class="btn bg-lime-400 top-3/4 fixed right-0 text-black mt-2 px-3 z-20 rounded-full"
+      >
+        Live Chat
+      </button>
+    </div>
+
+    <!-- Online Users List -->
+    <div
+      id="onlineUsers"
+      class="fixed bottom-20 left-0 z-9999 bg-purple-600 text-white p-4 shadow-lg rounded-lg"
+    >
+      <h3>Online Users</h3>
+      <ul id="usersList">
+        <!-- Online users will be populated here -->
+      </ul>
+    </div>
+
+    <div class="absolute z-40 bottom-8">
+      <div id="chat2" class="fixed bottom-6 hidden text-center z-9999">
+        <!-- Message Container -->
+        <div
+          id="messages"
+          class="max-w-4xl max-h-72 overflow-scroll mx-auto bg-purple-300 p-4 rounded-lg shadow-lg space-y-1 overflow-y-auto"
+        >
+          <p class="bg-purple-600 px-4 rounded-3xl">Customer Support</p>
+          <!-- Messages from users will be displayed here -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Generate or get a user ID from localStorage
+      let userId = localStorage.getItem("userId");
+      if (!userId) {
+        userId = Math.floor(Math.random() * 1000000); // Generate a random user ID (6 digits)
+        localStorage.setItem("userId", userId); // Save to localStorage
+      }
+
+      // Initialize Socket.IO connection
+      const socket = io(); // Replace with your server URL
+
+      // Register the admin when the Socket.IO connection is established
+      socket.on("connect", () => {
+        console.log("Connected to Socket.IO");
+        socket.emit("admin-register", { userId }); // Send admin register event
+      });
+
+      // Listen for the list of online users
+      socket.on("onlineUsersList", (users) => {
+        const usersListElement = document.getElementById("usersList");
+
+        // Clear the current list
+        usersListElement.innerHTML = "";
+
+        // Populate the list with the current online users
+        users.forEach((user) => {
+          const li = document.createElement("li");
+          li.textContent = `User ${user}`;
+          usersListElement.appendChild(li);
+        });
+      });
+
+      // Listen for messages from the users
+      socket.on("newMessageFromUser", (message) => {
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("justify-start", "flex", "block");
+        messageDiv.innerHTML = `        
+          <p class="text-gray-800 font-medium inline-block max-w-[50%] sm:max-w-[80%] md:max-w-[50%] lg:max-w-[40%] bg-gray-100 p-2 rounded-tl-[0px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] break-words">User ${message.userId}: ${message.message}</p>
+          <button onclick="sendReply('${message.userId}')" class="text-blue-500 hover:underline hover:bg-blue-600 hover:text-white">Reply</button>
+        `;
+        document.getElementById("messages").appendChild(messageDiv);
+
+        // Save the user's message to localStorage
+        saveMessage(message.userId, "User", message.message);
+
+        // Scroll to the bottom of the messages container to show new messages
+        const messagesContainer = document.getElementById("messages");
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      });
+
+      // Listen for the admin's reply
+      socket.on("adminReply", (message) => {
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("justify-start", "flex", "block");
+        messageDiv.innerHTML = `        
+          <p class="text-blue-800 font-medium inline-block max-w-[50%] sm:max-w-[80%] md:max-w-[50%] lg:max-w-[40%] bg-blue-100 p-2 rounded-tl-[10px] rounded-tr-[0px] rounded-br-[10px] rounded-bl-[10px] break-words"> ${message.message}</p>
+        `;
+        document.getElementById("messages").appendChild(messageDiv);
+
+        // Save the admin reply to localStorage
+        saveMessage(message.userId, "Admin", message.message);
+
+        // Scroll to the bottom of the messages container to show new messages
+        const messagesContainer = document.getElementById("messages");
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      });
+
+      // Function to send a reply (when clicking a "Reply" button from a user's message)
+      function sendReply(userId) {
+        const replyMessage = prompt("Enter your reply:");
+        if (replyMessage) {
+          socket.emit("adminReply", { userId, message: replyMessage });
+
+          const messageDiv = document.createElement("div");
+          messageDiv.classList.add("justify-end", "flex", "block");
+          messageDiv.innerHTML = `        
+            <p class="text-blue-800 font-medium inline-block max-w-[50%] sm:max-w-[80%] md:max-w-[50%] lg:max-w-[40%] bg-blue-100 p-2 rounded-tl-[10px] rounded-tr-[0px] rounded-br-[10px] rounded-bl-[10px] break-words"> ${replyMessage}</p>
+          `;
+          document.getElementById("messages").appendChild(messageDiv);
+
+          // Scroll to the bottom of the messages container to show new messages
+          const messagesContainer = document.getElementById("messages");
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+          // Save the reply to localStorage
+          saveMessage(userId, "Admin", replyMessage);
+        }
+      }
+
+      // Save the message (either from admin or user) to localStorage
+      function saveMessage(userId, sender, message) {
+        let messages =
+          JSON.parse(localStorage.getItem("messages_" + userId)) || [];
+        messages.push({ sender, message });
+        localStorage.setItem("messages_" + userId, JSON.stringify(messages));
+      }
+
+      // Load messages from localStorage when the page loads
+      function loadMessages(userId) {
+        const messages =
+          JSON.parse(localStorage.getItem("messages_" + userId)) || [];
+        const messagesContainer = document.getElementById("messages");
+
+        // Display the messages from localStorage
+        messages.forEach((msg) => {
+          const messageDiv = document.createElement("div");
+          messageDiv.classList.add(
+            msg.sender === "Admin" ? "justify-end" : "justify-start",
+            "flex",
+            "block"
+          );
+          messageDiv.innerHTML = `        
+            <p class="${msg.sender === "Admin" ? "text-blue-800 rounded-tl-[10px] rounded-tr-[0px] rounded-br-[10px] rounded-bl-[10px]" : "text-gray-800 rounded-tl-[0px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px]"} font-medium inline-block max-w-[50%] sm:max-w-[80%] md:max-w-[50%] lg:max-w-[40%] bg-${msg.sender === "Admin" ? "blue" : "gray"}-100 p-2  break-words">${msg.sender}: ${msg.message}</p>
+          `;
+          messagesContainer.appendChild(messageDiv);
+        });
+
+        // Scroll to the bottom of the messages container to show new messages
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      // Load stored messages when the page loads
+      window.onload = () => {
+        loadMessages(userId);
+        const messagesContainer = document.getElementById("messages");
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      };
+    </script>
+  </body>
+</html>

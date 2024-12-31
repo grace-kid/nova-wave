@@ -1,0 +1,156 @@
+<div class="scroll-up z-index-77">
+  <button
+    id="chat1"
+    class="btn bg-blue-600 top-3/4 fixed right-3 text-black mt-2 px-3 z-20 rounded-full"
+  >
+    Live Chat
+    <div id="adminStatus" class="rounded-full bg-red-500 inline">◯</div>
+    <!-- Status Indicator -->
+  </button>
+</div>
+<div class="absolute z-40 bottom-8">
+  <div id="chat2" class="fixed bottom-6 text-center z-9999">
+    <div
+      id="messages"
+      class="max-w-4xl mx-auto max-h-72 overflow-scroll bg-purple-300 p-4 rounded-lg shadow-lg space-y-1 overflow-y-auto"
+    >
+      <p class="bg-purple-600 px-4 rounded-3xl">customer support</p>
+      <!-- User and Admin messages will be displayed here -->
+    </div>
+
+    <!-- Message Input and Send Button -->
+    <div class="max-w-4xl mx-auto mt-1 flex items-center space-x-4">
+      <input
+        type="text"
+        id="messageInput"
+        class="flex-1 text-black placeholder:text-black p-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Type a message..."
+      />
+      <button
+        id="sendMessage"
+        class="bg-blue-500 text-white p-2 rounded-lg shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        Send
+      </button>
+    </div>
+  </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  const socket = io();
+
+  let userId = localStorage.getItem("userId");
+
+  // If not, generate a new user ID and store it
+  if (!userId) {
+    userId = Math.floor(Math.random() * 1000000); // Generate a random user ID (6 digits)
+    localStorage.setItem("userId", userId); // Save to localStorage
+  }
+
+  console.log(userId);
+
+  socket.on("connect", () => {
+    console.log("Connected to Socket.IO");
+    socket.emit("registerUser", { userId });
+  });
+
+  // Listen for messages from the server (admin's replies)
+  socket.on("adminReply", (message) => {
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("justify-start", "flex", "block");
+    messageDiv.innerHTML = ` 
+        <p class="text-blue-800 font-medium inline-block max-w-[50%] sm:max-w-[80%] md:max-w-[50%] lg:max-w-[40%] bg-blue-100 p-1 rounded-tl-[0px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] break-words">Admin: ${message.message}</p>
+      `;
+    document.getElementById("messages").appendChild(messageDiv);
+
+    // Scroll to the bottom of the messages container to show new messages
+    const messagesContainer = document.getElementById("messages");
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  });
+
+  // Handle the "Send" button click
+  document.getElementById("sendMessage").addEventListener("click", () => {
+    const message = document.getElementById("messageInput").value.trim();
+
+    if (message) {
+      socket.emit("userMessage", { userId, message });
+
+      // Save the user's message to localStorage
+      saveMessage(userId, "You", message);
+
+      // Display the user's own message in the chat box
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add("justify-end", "flex", "block");
+      messageDiv.innerHTML = `
+          <p class="text-gray-800 font-medium inline-block max-w-[50%] sm:max-w-[80%] md:max-w-[50%] lg:max-w-[40%] bg-gray-100 p-1 rounded-tl-[10px] rounded-tr-[0px] rounded-br-[10px] rounded-bl-[10px] break-words">You: ${message}</p>
+        `;
+      document.getElementById("messages").appendChild(messageDiv);
+
+      // Scroll to the bottom of the messages container to show new messages
+      const messagesContainer = document.getElementById("messages");
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+      // Clear the input field
+      document.getElementById("messageInput").value = "";
+    }
+  });
+
+  // Save message to localStorage
+  function saveMessage(userId, sender, message) {
+    let messages = JSON.parse(localStorage.getItem("messages_" + userId)) || [];
+    messages.push({ sender, message });
+    localStorage.setItem("messages_" + userId, JSON.stringify(messages));
+  }
+
+  // Load messages from localStorage when the page loads
+  function loadMessages(userId) {
+    const messages =
+      JSON.parse(localStorage.getItem("messages_" + userId)) || [];
+    const messagesContainer = document.getElementById("messages");
+
+    // Display the messages from localStorage
+    messages.forEach((msg) => {
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add(
+        msg.sender === "You" ? "justify-end" : "justify-start",
+        "flex",
+        "block"
+      );
+      messageDiv.innerHTML = ` 
+          <p class="${
+            msg.sender === "You"
+              ? "text-gray-800 rounded-tl-[10px] rounded-tr-[0px] rounded-br-[10px] rounded-bl-[10px] "
+              : "text-blue-800  rounded-tl-[0px] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px]"
+          } font-medium inline-block max-w-[50%] 
+          sm:max-w-[80%] md:max-w-[50%] lg:max-w-[40%]
+           bg-${msg.sender === "You" ? "gray" : "blue"}-100 p-1 
+            break-words">${msg.sender}: ${msg.message}</p>
+        `;
+      messagesContainer.appendChild(messageDiv);
+    });
+
+    // Scroll to the bottom of the messages container to show new messages
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  // Listen for admin status updates
+  socket.on("adminStatus", (data) => {
+    const adminStatusElement = document.getElementById("adminStatus");
+
+    if (data.online) {
+      adminStatusElement.classList.remove("bg-red-500");
+      adminStatusElement.classList.add("bg-green-500");
+    } else {
+      adminStatusElement.classList.remove("bg-green-500");
+      adminStatusElement.classList.add("bg-red-500");
+    }
+  });
+
+  // Load stored messages when the page loads
+  window.onload = () => {
+    loadMessages(userId);
+    const messagesContainer = document.getElementById("messages");
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  };
+</script>

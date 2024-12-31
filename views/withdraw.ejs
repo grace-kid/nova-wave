@@ -1,0 +1,55 @@
+<div class="hidden"><%- include('header') %></div>
+
+
+  <!-- Header Section -->
+  <header id="header-sectionww">
+    <div  class="flex justify-between w-full  p-2">
+        <img src="./uploads/logo/logo.png" class="w-64"  alt="NovaWave Ltd"> 
+        <a href="/dashboard" class="text-lg text-center mt-2">Back to Dashboard</a>
+      </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-8">
+    <!-- Error Message (if any) -->
+  
+    <!-- Withdrawal Form -->
+    <div class="bg-purple-400 shadow-md rounded-lg p-6">
+      <h2 class="text-2xl font-semibold mb-4">Enter Withdrawal Details</h2>
+      <form action="/withdraw" method="POST">
+        <!-- User ID (hidden, passed from session) -->
+        <input type="hidden" name="userId" value="<%= userId %>">
+
+        <!-- Amount Field -->
+        <div class="mb-4">
+          <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
+          <input type="number" name="amount" id="amount" required class="mt-1 p-2 w-full border placeholder:text-black text-black border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="Enter amount to withdraw">
+        </div>
+ 
+        <!-- Address Field -->
+        <div class="mb-4">
+          <label for="address" class="block text-sm font-medium text-gray-700">wallet Address</label>
+          <input type="text" name="address" id="address" required class="mt-1 p-2 w-full border placeholder:text-black text-black border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="Enter wallet address">
+        </div>
+
+        <!-- Transaction Hash ID Field -->
+        <div class="mb-4">
+          <label for="hashID" class="block text-sm font-medium text-gray-700">Transaction Hash ID</label>
+          <input type="text" name="hashID" id="hashID" required class="mt-1 p-2 w-full border  placeholder:text-black  text-black border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="Enter transaction hash ID">
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+          <button type="submit" class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            Submit Withdrawal
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <%- include('chart') %>
+
+  <!-- Footer Section -->
+ 
+</body>
+</html>

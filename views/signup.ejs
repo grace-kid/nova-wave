@@ -1,0 +1,119 @@
+<div class=""><%- include('header') %></div>
+<header id="header-sectionww">
+  <div class="flex justify-between w-full p-2">
+    <img src="./uploads/logo/logo.png" class="w-64" alt="NovaWave Ltd" />
+    <a href="/" class="text-lg text-center mt-2">back</a>
+  </div>
+</header>
+<section class="text-center mt-6">
+  <div class="mb-4">
+    <h1 class="font-extrabold text-2xl">Register</h1>
+    <p>Home - <span class="text-violet-500">Register</span></p>
+  </div>
+  <div class="bg-violet-900 mx-3 py-4 text-white">
+    <h1>Register Here</h1>
+    <form id="registerForm" action="/signup" method="post">
+      <input
+        type="text"
+        name="fname"
+        id="fname"
+        placeholder="Full Name"
+        class="text-white bg-violet-950 p-2 m-2"
+        required
+      /><br />
+      <input
+        type="text"
+        name="username"
+        id="username"
+        placeholder="Username"
+        class="text-white bg-violet-950 p-2 m-2"
+        required
+      /><br />
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Email Address"
+        class="text-white bg-violet-950 p-2 m-2"
+        required
+      /><br />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+        class="text-white bg-violet-950 p-2 m-2"
+        required
+      /><br />
+      <input
+        type="password"
+        name="password2"
+        id="password2"
+        placeholder="Confirm Password"
+        class="text-white bg-violet-950 p-2 m-2"
+        required
+      />
+      <br />
+      <input type="checkbox" name="agree" class="text-white p-2 m-2" required />
+      <span> I agree to the terms and conditions. </span>
+      <button
+        type="submit"
+        class="block m-4 bg-violet-700 py-3 px-6 hover:px-8 -skew-x-6"
+      >
+        Register
+      </button>
+      <br />
+
+      <p>
+        Already have an account?<span>
+          <a class="text-violet-500" href="/login">login now</a>
+        </span>
+      </p>
+    </form>
+  </div>
+</section>
+<%- include('chart') %> <%- include('footer') %>
+
+<script>
+  document
+    .getElementById("registerForm")
+    .addEventListener("submit", function (event) {
+      // Get the form elements
+      const password = document.getElementById("password").value;
+      const password2 = document.getElementById("password2").value;
+      const email = document.getElementById("email").value;
+      const username = document.getElementById("username").value;
+
+      // Check if passwords match
+      if (password !== password2) {
+        alert("Passwords do not match.");
+        event.preventDefault(); // Prevent form submission
+        return;
+      }
+
+      // Validate password strength (must be at least 8 characters, including uppercase, lowercase, and numbers)
+      const passwordStrengthRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
+      if (!passwordStrengthRegex.test(password)) {
+        alert(
+          "Password must be at least 8 characters long and include uppercase, lowercase, and numbers."
+        );
+        event.preventDefault();
+        return;
+      }
+
+      // Sanitize inputs (e.g., removing HTML or script tags) before sending to server
+      function sanitizeInput(input) {
+        const tempDiv = document.createElement("div");
+        tempDiv.textContent = input; // Text will be sanitized automatically
+        return tempDiv.innerHTML;
+      }
+
+      // Sanitize inputs before submitting
+      document.getElementById("fname").value = sanitizeInput(
+        document.getElementById("fname").value
+      );
+      document.getElementById("username").value = sanitizeInput(username);
+      document.getElementById("email").value = sanitizeInput(email);
+    });
+</script>

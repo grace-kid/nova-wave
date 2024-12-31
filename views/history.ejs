@@ -1,0 +1,189 @@
+<%- include('header') %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaWave Transaction History</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Additional styles for print and print button */
+    
+    /* Print button */
+    .printBtn {
+      padding: 6px 12px;
+      background-color: #3182ce;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .printBtn:hover {
+      background-color: #2b6cb0;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        font-family: 'Courier New', monospace;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      .receipt {
+        width: 300px;
+        padding: 20px;
+        border: 1px solid #000;
+        margin: 0 auto;
+        font-size: 14px;
+      }
+
+      .receipt h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .receipt p {
+        margin: 5px 0;
+      }
+
+      .receipt .company {
+        font-weight: bold;
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
+
+      .receipt .details {
+        margin-top: 20px;
+      }
+
+      .receipt .details p {
+        font-size: 16px;
+      }
+
+      .receipt .details strong {
+        font-weight: bold;
+      }
+
+      /* Hide unnecessary elements during printing */
+      .printBtn,
+      header,
+      footer {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Include the header.ejs -->
+
+  <header id="header-sectionww">
+    <div  class="flex justify-between w-full  p-2">
+        <img src="./uploads/logo/logo.png" class="w-64"  alt="NovaWave Ltd"> 
+        <a href="/dashboard" class="text-lg text-center mt-2">Back to Dashboard</a>
+      </div>
+  </header>
+  <main class="container mx-auto p-8">
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Payment History - NovaWave</h2>
+      <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+        <table id="paymentTable" class="min-w-full table-auto">
+          <thead>
+            <tr class="bg-blue-100">
+              <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Amount</th>
+              <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Status</th>
+              <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Address</th>
+              <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Transaction Hash</th>
+              <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Time</th>
+              <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% payments.forEach(function(payment) { %>
+              <tr class="bg-white border-b">
+                <td class="px-6 py-3 text-sm text-gray-900"><%= payment.amount %> USD</td>
+                <td class="px-6 py-3 text-sm text-gray-900"><%= payment.status %></td>
+                <td class="px-6 py-3 text-sm text-gray-900"><%= payment.address %></td>
+                <td class="px-6 py-3 text-sm text-blue-600"><%= payment.hashid %></td>
+                <td class="px-6 py-3 text-sm text-blue-600"><%= payment.payment_date %></td>
+                <td class="px-6 py-3 text-sm">
+                  <button class="printBtn" onclick="printReceipt('<%= payment.amount %>', '<%= payment.status %>', '<%= payment.address %>', '<%= payment.hashid %>', '<%= payment.payment_date %>', 'Payment')">Print</button>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Withdrawal History - NovaWave</h2>
+      <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+        <table id="withdrawalTable" class="min-w-full table-auto">
+          <thead>
+            <tr class="bg-blue-100">
+              <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Amount</th>
+              <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Status</th>
+              <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Address</th>
+              <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Transaction Hash</th>
+              <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Time</th>
+              <th class="px-6 py-3 text-left text-sm font-medium text-gray-500">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% withdrawal.forEach(function(withdraw) { %>
+              <tr class="bg-white border-b">
+                <td class="px-6 py-3 text-sm text-gray-900"><%= withdraw.amount %> USD</td>
+                <td class="px-6 py-3 text-sm text-gray-900"><%= withdraw.status %></td>
+                <td class="px-6 py-3 text-sm text-gray-900"><%= withdraw.address %></td>
+                <td class="px-6 py-3 text-sm text-blue-600"><%= withdraw.hashid %></td>
+                <td class="px-6 py-3 text-sm text-blue-600"><%= withdraw.payment_date %></td>
+                <td class="px-6 py-3 text-sm">
+                  <button class="printBtn" onclick="printReceipt('<%= withdraw.amount %>', '<%= withdraw.status %>', '<%= withdraw.address %>', '<%= withdraw.hashid %>', '<%= withdraw.payment_date %>', 'Withdrawal')">Print</button>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function printReceipt(amount, status, address, hashid, payment_date, type) {
+      const receiptContent = `
+    <div class="receipt" style="width: 300px; padding: 20px; border: 1px solid #000; margin: 0 auto; font-family: Arial, sans-serif; font-size: 14px; text-align: center;">
+      <!-- Company Logo -->
+      <img src="./uploads/logo/logo.png" alt="NovaWave Ltd" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+      
+      <h2 class="company" style="font-size: 22px; font-weight: bold; margin-bottom: 15px; color: #3182ce;">NovaWave</h2>
+      <h3 style="font-size: 18px; font-weight: bold; margin-bottom: 20px;">${type} Receipt</h3>
+      
+      <div class="details" style="font-size: 16px; text-align: left;">
+        <p><strong style="color: #2d3748;">Amount:</strong> ${amount} USD</p>
+        <p><strong style="color: #2d3748;">Status:</strong> ${status}</p>
+        <p><strong style="color: #2d3748;">Address:</strong> ${address}</p>
+        <p><strong style="color: #2d3748;">Transaction Hash:</strong> ${hashid}</p>
+        <p><strong style="color: #2d3748;">Time:</strong> ${payment_date}</p>
+      </div>
+    </div>
+      `;
+
+      const printWindow = window.open('', '', 'width=600,height=400');
+      printWindow.document.write('<html><head><title>Receipt</title>');
+      printWindow.document.write('<style>body { font-family: Arial, sans-serif; }</style>');
+      printWindow.document.write('</head><body>');
+      printWindow.document.write(receiptContent);
+      printWindow.document.write("<script> window.print(); window.close();<\/script>");
+      printWindow.document.close();
+    }
+  </script>
+
+</body>
+
+</html>

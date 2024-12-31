@@ -1,0 +1,127 @@
+<div class="hidden"><%- include('header') %></div>
+
+  <!-- Header -->
+  <header class="bg-blue-600 text-blacl p-4 flex">
+    <h1 class="text-3xl font-bold">Admin Dashboard</h1>
+  </header>
+
+  <div class="container mx-auto p-6">
+    <!-- Payment Table -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Payments</h2>
+      <table class="min-w-full bg-purple-900 border border-gray-300 rounded-lg shadow-md">
+        <thead class="bg-purple-800">
+          <tr>
+            <th class="py-2 px-4 text-left"> ID</th>
+            <th class="py-2 px-4 text-left">User ID</th>
+            <th class="py-2 px-4 text-left">Amount</th>
+            <th class="py-2 px-4 text-left">Hash ID</th>
+            <th class="py-2 px-4 text-left">Approve</th>
+            <th class="py-2 px-4 text-left">Reject</th>
+            <th class="py-2 px-4 text-left">Status</th>
+            <th class="py-2 px-4 text-left">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% payment.forEach(p => { %>
+            <tr class="border-b">
+              <td class="py-2 px-4"><%= p.id %></td>
+              <td class="py-2 px-4"><%= p.user_id %></td>
+              <td class="py-2 px-4"><%= p.amount %></td>
+              <td class="py-2 px-4"><%= p.hashid %></td>
+              <td class="py-2 px-4"> 
+                <form action="/admin/payment/<%= p.id %>/<%= p.user_id %>/<%= p.amount %>/approve" method="POST" style="display:inline;">
+                  <button type="submit">Approve</button>
+                </form>
+              </td>
+              <td class="py-2 px-4">       
+                 <form action="/admin/payment/<%= p.id %>/reject" method="POST" style="display:inline;">
+                      <button type="submit">Reject</button>
+                 </form>
+            </td>
+
+
+
+              <td class="py-2 px-4"><%= p.status %></td>
+              <td class="py-2 px-4"><%= p.payment_date %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Withdrawals Table -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Withdrawals</h2>
+      <table class="min-w-full bg-purple-900 border border-gray-300 rounded-lg shadow-md">
+        <thead class="bg-purple-800">
+          <tr>
+            <th class="py-2 px-4 text-left">ID</th>
+            <th class="py-2 px-4 text-left">User ID</th>
+            <th class="py-2 px-4 text-left">Amount</th>
+            <th class="py-2 px-4 text-left">Hash ID</th>
+            <th class="py-2 px-4 text-left">Approve</th>
+            <th class="py-2 px-4 text-left">Reject</th>
+            <th class="py-2 px-4 text-left">Status</th>
+            <th class="py-2 px-4 text-left">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% withdrawals.forEach(w => { %>
+            <tr class="border-b">
+              <td class="py-2 px-4"><%= w.id %></td>
+              <td class="py-2 px-4"><%= w.user_id %></td>
+              <td class="py-2 px-4"><%= w.amount %></td>
+              <td class="py-2 px-4"><%= w.hashid %></td>
+              <td class="py-2 px-4">
+                <form action="/admin/withdrawal/<%= w.id %>/<%= w.user_id %>/<%= w.amount %>/approve" method="POST" style="display:inline;">
+                  <button type="submit">Approve</button>
+                </form>
+              </td>
+              <td class="py-2 px-4">
+                <form action="/admin/withdrawals/<%= w.id %>/reject" method="POST" style="display:inline;">
+                  <button type="submit">Reject</button>
+                </form>
+              </td>
+                            <td class="py-2 px-4"><%= w.status %></td>
+              <td class="py-2 px-4"><%= w.payment_date %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Users Table -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Users</h2>
+      <table class="min-w-full bg-purple-900 border border-gray-300 rounded-lg shadow-md">
+        <thead class="bg-purple-800">
+          <tr>
+            <th class="py-2 px-4 text-left">ID</th>
+            <th class="py-2 px-4 text-left">Username</th>
+            <th class="py-2 px-4 text-left">Email</th>
+            <th class="py-2 px-4 text-left">Balance</th>
+            <th class="py-2 px-4 text-left">Referral Code</th>
+            <th class="py-2 px-4 text-left">Referred By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users1.forEach(u => { %>
+            <tr class="border-b">
+              <td class="py-2 px-4"><%= u.id %></td>
+              <td class="py-2 px-4"><%= u.username %></td>
+              <td class="py-2 px-4"><%= u.email %></td>
+              <td class="py-2 px-4"><%= u.balance %></td>
+              <td class="py-2 px-4"><%= u.referral_code %></td>
+              <td class="py-2 px-4"><%= u.referred_by %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </section>
+  </div>
+<%- include('admin-chat') %>
+  <!-- Footer -->
+ 
+</body>
+</html>

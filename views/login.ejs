@@ -1,0 +1,86 @@
+<div class="hidden"><%- include('header') %></div>
+<header id="header-sectionww">
+  <div class="flex justify-between w-full p-2">
+    <img src="./uploads/logo/logo.png" class="w-64" alt="NovaWave Ltd" />
+    <a href="/" class="text-lg text-center mt-2">back</a>
+  </div>
+</header>
+<section class="text-center mt-6">
+  <div class="mb-4">
+    <h1 class="font-extrabold text-2xl">Login</h1>
+    <p>Welcome <span class="text-violet-500">Back</span></p>
+  </div>
+  <div class="bg-violet-900 mx-3 py-4 text-white">
+    <h1>Login Here</h1>
+    <form id="loginForm" action="/login" method="post">
+      <input
+        type="text"
+        name="email"
+        id="email"
+        placeholder="Username"
+        class="text-white bg-violet-950 p-2 m-2"
+        required
+      /><br />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+        class="text-white bg-violet-950 p-2 m-2"
+        required
+      /><br />
+      <input type="checkbox" name="agree" class="text-white p-2 m-2" />
+      <span> Remember me </span>
+      <button
+        type="submit"
+        class="block m-4 bg-violet-700 py-3 px-6 hover:px-8 -skew-x-6"
+      >
+        Login
+      </button>
+      <br />
+
+      <p>
+        Don't have an account?<span>
+          <a class="text-violet-500" href="/signup">create account</a>
+        </span>
+      </p>
+    </form>
+  </div>
+</section>
+<%- include('chart') %> <%- include('footer') %>
+
+<script>
+  // Client-side validation before form submission
+  document
+    .getElementById("loginForm")
+    .addEventListener("submit", function (event) {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Basic email validation
+      const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+      if (!emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        event.preventDefault(); // Prevent form submission
+        return;
+      }
+
+      // Check if the password is empty
+      if (password.trim() === "") {
+        alert("Password cannot be empty.");
+        event.preventDefault();
+        return;
+      }
+
+      // Sanitize inputs (HTML tags or script injection)
+      function sanitizeInput(input) {
+        const tempDiv = document.createElement("div");
+        tempDiv.textContent = input; // Text will be sanitized automatically
+        return tempDiv.innerHTML;
+      }
+
+      // Sanitize email and password before submission
+      document.getElementById("email").value = sanitizeInput(email);
+      document.getElementById("password").value = sanitizeInput(password);
+    });
+</script>
